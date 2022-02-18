@@ -24,18 +24,8 @@ def data_return(acct):
 
     js = json.loads(data)
     # print(json.dumps(js, indent=2))
-
-    headers = dict(connection.getheaders())
-    # print('Remaining', headers['x-rate-limit-remaining'])
-
-    for u in js['users']:
-        # print(u['screen_name'])
-        if 'status' not in u:
-            # print('   * No status found')
-            continue
-        s = u['status']['text']
-        # print('  ', s[:50])
     return js
 
-with open("twitter2.json", "w") as file:
-    json.dump(data_return("CyberMavka"), file, indent = 4)
+if __name__=="__main__":
+    with open("twitter2.json", "w") as file:
+        json.dump(data_return("CyberMavka"), file, indent = 4)
